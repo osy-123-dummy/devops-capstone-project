@@ -158,7 +158,7 @@ class TestAccountService(TestCase):
         updated_account = resp.get_json()
         self.assertEqual(updated_account["name"], "Something Known")
 
-    def test_account_not_found_update(self):
+    def test_account_not_update(self):
         """
         It should not Update a non-existing Account
         """
