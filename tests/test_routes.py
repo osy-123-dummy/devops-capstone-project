@@ -146,9 +146,7 @@ class TestAccountService(TestCase):
         """It should Update an existing Account"""
         # create an Account to update
         test_account = AccountFactory()
-        resp = self.client.post(
-        f"{BASE_URL}", json=test_account.serialize()
-        )
+        resp = self.client.post(f"{BASE_URL}", json=test_account.serialize())
         self.assertEqual(resp.status_code, status.HTTP_201_CREATED)
 
         # update the account
@@ -160,7 +158,7 @@ class TestAccountService(TestCase):
         updated_account = resp.get_json()
         self.assertEqual(updated_account["name"], "Something Known")
 
-    def test_account_not_found(self):
+    def test_account_not_update(self):
         """
         It should not Update a non-existing Account
         """
